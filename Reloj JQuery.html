@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Reloj JQuery</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!--<script src="jquery-3.3.1.js" type="text/javascript"></script>-->
+
+</head>
+
+<body>
+	<div id="Reloj"></div>
+	<script src="radialIndicator.js"></script>
+	<script src="angular.radialIndicator.js"></script>
+<script type="text/javascript">
+	var radialObj = radialIndicator('#Reloj', {
+    radius: 100,
+    barWidth: 30,
+    barColor: '#4d94ff',
+    minValue: 0,
+    maxValue: 60,
+    fontWeight: 'normal',
+    roundCorner: true,
+    format: function (value) {
+        var date = new Date();
+        return date.getHours() + ':' + date.getMinutes();
+    }
+});
+ 
+setInterval(function () {
+    radialObj.value(new Date().getSeconds() + 1);
+}, 1000);
+</script>	
+</body>
+
+</html>
